@@ -23,7 +23,8 @@ export default class extends Component {
     renderHandler = () => ({ siteInfo, list, router }) => {
         const { setting } = siteInfo;
         let { query: { page }, asPath } = router;
-        const notice_hot = list[0].shift();
+        const notice_arr = [].concat(list[0]);        
+        const notice_hot = notice_arr.shift();
 
         return (
             <div className="hdz-home-body">
@@ -43,14 +44,14 @@ export default class extends Component {
                             <div className="announcement-view">
                                 <div className="announcement-big">
                                     <div className="announcement-big-content">
-                                        <p>{notice_hot.title}</p>
+                                        <p><a href={`${config.CONTENT_DETAIL_URL}/${notice_hot.id}`}>{notice_hot.title}</a></p>
                                         <p>{moment(notice_hot.publish_at).format('YYYY-MM-DD HH:mm:SS')}</p>
                                         <p>{notice_hot.text.replace(/<[^>]+>/g, "").slice(0, 200)}</p>
                                     </div>
                                 </div>
 
                                 <div className="announcement-list">
-                                    {list[0].map(item => (
+                                    {notice_arr.map(item => (
                                         <p key={item.id}>
                                             <a href={`${config.CONTENT_DETAIL_URL}/${item.id}`}>{item.title}</a>
                                             <span>{moment(item.publish_at).format('YYYY-MM-DD')}</span>

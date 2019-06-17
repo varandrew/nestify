@@ -100,7 +100,7 @@
 
         .announcement-big-content {
             p {
-                &:nth-child(1) {
+                &:nth-child(1) a {
                     font-size: 22px;
                     color: $COMMON_BLUE;
                 }
