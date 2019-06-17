@@ -52,10 +52,12 @@
             line-height: 1.5;
 
             &:first-child {
-                color: #44980f;
                 font-size: 16px;
                 height: 25px;
                 margin-bottom: 6px;
+                >a {
+                    color: #44980f;
+                }
             }
 
             &:last-child {

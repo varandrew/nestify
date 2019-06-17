@@ -41,7 +41,7 @@ const News = ({ news, activity }) => {
                 <a href={thisState.current === 1 ? `/list/activities` : `/list/news`}>更多</a>
             </div>
             <div className="news-hot">
-                <p>{thisState.hot.title}</p>
+                <p><a href={`${config.CONTENT_DETAIL_URL}/${thisState.hot.id}`}>{thisState.hot.title}</a></p>
                 <p>{thisState.hot.text && thisState.hot.text.replace(/<[^>]+>/g, "").slice(0, 50)}</p>
             </div>
             <div className="news-list">
