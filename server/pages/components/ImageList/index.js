@@ -19,7 +19,7 @@ const ImageList = ({ list }) => {
                 {list[0].map(item => (
                     <div className="image-item-container" key={item.id}>
                         <a href={`${asPath.split('?').shift()}/${item.id}`} className="image-item">
-                            <img src={item.thumbnail} alt='PIC' />
+                            <img src={item.thumbnailPath} alt='PIC' />
                             <p>{item.title}</p>
                         </a>
                     </div>

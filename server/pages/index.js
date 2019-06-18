@@ -17,10 +17,11 @@ import config from './_config';
 
 @withRouter
 export default class extends Component {
-	renderHandler = () => ({ news_list, activity_list, notice_list, scenic_list, characteristic_list }) => {
-
+	renderHandler = () => ({ news_list, activity_list, notice_list, scenic_list, characteristic_list, siteInfo }) => {
+		const { menus } = siteInfo;
 		let characteristic_img_list = characteristic_list[0].slice(0,10).map(item => ({ link: `${config.CONTENT_DETAIL_URL}/${item.id}`, img: item.thumbnailPath }));
 		let news_img_list = news_list[0].slice(0, 4).map(item => ({ link: `${config.CONTENT_DETAIL_URL}/${item.id}`, img: item.thumbnailPath, title: item.title }))
+		let url_720 = [].concat(menus).filter(menu => menu.name === '景区风光').shift().children.filter(item => item.name === '720度全景').shift().url;
 
 		return (
 			<div className="hdz-home-body">
@@ -49,7 +50,7 @@ export default class extends Component {
 								</div>
 							</div>
 							<div className="main-bottom">
-								<a href="https://720yun.com/t/d13jOO4yzu1?scene_id=3465120"></a>
+								<a href={url_720}></a>
 								<a href="/image/guide"></a>
 								<a href="/image/photo"></a>
 							</div>
